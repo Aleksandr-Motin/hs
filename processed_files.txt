@@ -18,7 +18,7 @@ MEDITECH-ADT-A01-Message+0+0000000033.txt|2025-07-26 01:10:53|error
 test-error-logging-new.txt|2025-07-26 01:10:53|error
 test-error-logging.txt|2025-07-26 01:10:53|error
 test-prefix-new.txt|2025-07-26 01:10:53|error
-test-structured-error.txt|2025-07-26 01:10:53|error
+test-structured-error.txt|2025-07-26 01:10:53|errors
 test-message-new.txt|2025-07-26 01:10:53|error
 test-layered-logging.txt|2025-07-26 01:10:53|error
 test-final-prefix.txt|2025-07-26 01:13:26|success

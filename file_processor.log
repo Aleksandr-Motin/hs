@@ -137,7 +137,7 @@
 2025-07-26 01:10:53 - INFO - Successfully read file: test-layered-logging.txt (197 characters)
 2025-07-26 01:10:53 - INFO - [test-layered-logging.txt] File was successfully read
 2025-07-26 01:10:53 - INFO - [test-layered-logging.txt] Sending HL7v2 message to Aidbox
-2025-07-26 01:10:53 - ERROR - Error processing file test-layered-logging.txt - NameError: name 'client' is not defined
+2025-07-26 01:10:53 - ERROR - Error processing file test-layered-logging.txt - NadmeError: name 'client' is not defined
 2025-07-26 01:10:53 - INFO - Marked file as processed: test-layered-logging.txt (status: error)
 2025-07-26 01:10:53 - INFO - File processing completed. Successfully processed: 0/23 files
 2025-07-26 01:12:43 - INFO - [test-prefix-direct.txt] Sending HL7v2 message to Aidbox

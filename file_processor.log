@@ -1,0 +1,159 @@
+2025-07-26 01:10:53 - INFO - Starting file processing for directory: ./files
+2025-07-26 01:10:53 - INFO - Loaded 0 processed files from tracking file
+2025-07-26 01:10:53 - INFO - Found 23 new files to process
+2025-07-26 01:10:53 - INFO - Processing file: test-retry-new.txt
+2025-07-26 01:10:53 - INFO - Successfully read file: test-retry-new.txt (199 characters)
+2025-07-26 01:10:53 - INFO - [test-retry-new.txt] File was successfully read
+2025-07-26 01:10:53 - INFO - [test-retry-new.txt] Sending HL7v2 message to Aidbox
+2025-07-26 01:10:53 - ERROR - Error processing file test-retry-new.txt - NameError: name 'client' is not defined
+2025-07-26 01:10:53 - INFO - Marked file as processed: test-retry-new.txt (status: error)
+2025-07-26 01:10:53 - INFO - Processing file: test-structured-logging.txt
+2025-07-26 01:10:53 - INFO - Successfully read file: test-structured-logging.txt (206 characters)
+2025-07-26 01:10:53 - INFO - [test-structured-logging.txt] File was successfully read
+2025-07-26 01:10:53 - INFO - [test-structured-logging.txt] Sending HL7v2 message to Aidbox
+2025-07-26 01:10:53 - ERROR - Error processing file test-structured-logging.txt - NameError: name 'client' is not defined
+2025-07-26 01:10:53 - INFO - Marked file as processed: test-structured-logging.txt (status: error)
+2025-07-26 01:10:53 - INFO - Processing file: test-retry-fixed.txt
+2025-07-26 01:10:53 - INFO - Successfully read file: test-retry-fixed.txt (201 characters)
+2025-07-26 01:10:53 - INFO - [test-retry-fixed.txt] File was successfully read
+2025-07-26 01:10:53 - INFO - [test-retry-fixed.txt] Sending HL7v2 message to Aidbox
+2025-07-26 01:10:53 - ERROR - Error processing file test-retry-fixed.txt - NameError: name 'client' is not defined
+2025-07-26 01:10:53 - INFO - Marked file as processed: test-retry-fixed.txt (status: error)
+2025-07-26 01:10:53 - INFO - Processing file: test-complete-retry-flow.txt
+2025-07-26 01:10:53 - INFO - Successfully read file: test-complete-retry-flow.txt (210 characters)
+2025-07-26 01:10:53 - INFO - [test-complete-retry-flow.txt] File was successfully read
+2025-07-26 01:10:53 - INFO - [test-complete-retry-flow.txt] Sending HL7v2 message to Aidbox
+2025-07-26 01:10:53 - ERROR - Error processing file test-complete-retry-flow.txt - NameError: name 'client' is not defined
+2025-07-26 01:10:53 - INFO - Marked file as processed: test-complete-retry-flow.txt (status: error)
+2025-07-26 01:10:53 - INFO - Processing file: test-prefixed-logger.txt
+2025-07-26 01:10:53 - INFO - Successfully read file: test-prefixed-logger.txt (207 characters)
+2025-07-26 01:10:53 - INFO - [test-prefixed-logger.txt] File was successfully read
+2025-07-26 01:10:53 - INFO - [test-prefixed-logger.txt] Sending HL7v2 message to Aidbox
+2025-07-26 01:10:53 - ERROR - Error processing file test-prefixed-logger.txt - NameError: name 'client' is not defined
+2025-07-26 01:10:53 - INFO - Marked file as processed: test-prefixed-logger.txt (status: error)
+2025-07-26 01:10:53 - INFO - Processing file: test-layered-logging-2.txt
+2025-07-26 01:10:53 - INFO - Successfully read file: test-layered-logging-2.txt (198 characters)
+2025-07-26 01:10:53 - INFO - [test-layered-logging-2.txt] File was successfully read
+2025-07-26 01:10:53 - INFO - [test-layered-logging-2.txt] Sending HL7v2 message to Aidbox
+2025-07-26 01:10:53 - ERROR - Error processing file test-layered-logging-2.txt - NameError: name 'client' is not defined
+2025-07-26 01:10:53 - INFO - Marked file as processed: test-layered-logging-2.txt (status: error)
+2025-07-26 01:10:53 - INFO - Processing file: test-prefix-logging.txt
+2025-07-26 01:10:53 - INFO - Successfully read file: test-prefix-logging.txt (202 characters)
+2025-07-26 01:10:53 - INFO - [test-prefix-logging.txt] File was successfully read
+2025-07-26 01:10:53 - INFO - [test-prefix-logging.txt] Sending HL7v2 message to Aidbox
+2025-07-26 01:10:53 - ERROR - Error processing file test-prefix-logging.txt - NameError: name 'client' is not defined
+2025-07-26 01:10:53 - INFO - Marked file as processed: test-prefix-logging.txt (status: error)
+2025-07-26 01:10:53 - INFO - Processing file: test-retry-logging.txt
+2025-07-26 01:10:53 - INFO - Successfully read file: test-retry-logging.txt (199 characters)
+2025-07-26 01:10:53 - INFO - [test-retry-logging.txt] File was successfully read
+2025-07-26 01:10:53 - INFO - [test-retry-logging.txt] Sending HL7v2 message to Aidbox
+2025-07-26 01:10:53 - ERROR - Error processing file test-retry-logging.txt - NameError: name 'client' is not defined
+2025-07-26 01:10:53 - INFO - Marked file as processed: test-retry-logging.txt (status: error)
+2025-07-26 01:10:53 - INFO - Processing file: test-new-logic.txt
+2025-07-26 01:10:53 - INFO - Successfully read file: test-new-logic.txt (203 characters)
+2025-07-26 01:10:53 - INFO - [test-new-logic.txt] File was successfully read
+2025-07-26 01:10:53 - INFO - [test-new-logic.txt] Sending HL7v2 message to Aidbox
+2025-07-26 01:10:53 - ERROR - Error processing file test-new-logic.txt - NameError: name 'client' is not defined
+2025-07-26 01:10:53 - INFO - Marked file as processed: test-new-logic.txt (status: error)
+2025-07-26 01:10:53 - INFO - Processing file: test-structured-logging-new.txt
+2025-07-26 01:10:53 - INFO - Successfully read file: test-structured-logging-new.txt (205 characters)
+2025-07-26 01:10:53 - INFO - [test-structured-logging-new.txt] File was successfully read
+2025-07-26 01:10:53 - INFO - [test-structured-logging-new.txt] Sending HL7v2 message to Aidbox
+2025-07-26 01:10:53 - ERROR - Error processing file test-structured-logging-new.txt - NameError: name 'client' is not defined
+2025-07-26 01:10:53 - INFO - Marked file as processed: test-structured-logging-new.txt (status: error)
+2025-07-26 01:10:53 - INFO - Processing file: MEDITECH-ADT-A01-Message+0+0000000034.txt
+2025-07-26 01:10:53 - INFO - Successfully read file: MEDITECH-ADT-A01-Message+0+0000000034.txt (1803 characters)
+2025-07-26 01:10:53 - INFO - [MEDITECH-ADT-A01-Message+0+0000000034.txt] File was successfully read
+2025-07-26 01:10:53 - INFO - [MEDITECH-ADT-A01-Message+0+0000000034.txt] Sending HL7v2 message to Aidbox
+2025-07-26 01:10:53 - ERROR - Error processing file MEDITECH-ADT-A01-Message+0+0000000034.txt - NameError: name 'client' is not defined
+2025-07-26 01:10:53 - INFO - Marked file as processed: MEDITECH-ADT-A01-Message+0+0000000034.txt (status: error)
+2025-07-26 01:10:53 - INFO - Processing file: MEDITECH-ADT-A01-Message+0+0000000035.txt
+2025-07-26 01:10:53 - INFO - Successfully read file: MEDITECH-ADT-A01-Message+0+0000000035.txt (1800 characters)
+2025-07-26 01:10:53 - INFO - [MEDITECH-ADT-A01-Message+0+0000000035.txt] File was successfully read
+2025-07-26 01:10:53 - INFO - [MEDITECH-ADT-A01-Message+0+0000000035.txt] Sending HL7v2 message to Aidbox
+2025-07-26 01:10:53 - ERROR - Error processing file MEDITECH-ADT-A01-Message+0+0000000035.txt - NameError: name 'client' is not defined
+2025-07-26 01:10:53 - INFO - Marked file as processed: MEDITECH-ADT-A01-Message+0+0000000035.txt (status: error)
+2025-07-26 01:10:53 - INFO - Processing file: MEDITECH-ADT-A01-Message+0+0000000031.txt
+2025-07-26 01:10:53 - INFO - Successfully read file: MEDITECH-ADT-A01-Message+0+0000000031.txt (1804 characters)
+2025-07-26 01:10:53 - INFO - [MEDITECH-ADT-A01-Message+0+0000000031.txt] File was successfully read
+2025-07-26 01:10:53 - INFO - [MEDITECH-ADT-A01-Message+0+0000000031.txt] Sending HL7v2 message to Aidbox
+2025-07-26 01:10:53 - ERROR - Error processing file MEDITECH-ADT-A01-Message+0+0000000031.txt - NameError: name 'client' is not defined
+2025-07-26 01:10:53 - INFO - Marked file as processed: MEDITECH-ADT-A01-Message+0+0000000031.txt (status: error)
+2025-07-26 01:10:53 - INFO - Processing file: test-retry-with-filename.txt
+2025-07-26 01:10:53 - INFO - Successfully read file: test-retry-with-filename.txt (204 characters)
+2025-07-26 01:10:53 - INFO - [test-retry-with-filename.txt] File was successfully read
+2025-07-26 01:10:53 - INFO - [test-retry-with-filename.txt] Sending HL7v2 message to Aidbox
+2025-07-26 01:10:53 - ERROR - Error processing file test-retry-with-filename.txt - NameError: name 'client' is not defined
+2025-07-26 01:10:53 - INFO - Marked file as processed: test-retry-with-filename.txt (status: error)
+2025-07-26 01:10:53 - INFO - Processing file: MEDITECH-ADT-A01-Message+0+0000000032.txt
+2025-07-26 01:10:53 - INFO - Successfully read file: MEDITECH-ADT-A01-Message+0+0000000032.txt (1807 characters)
+2025-07-26 01:10:53 - INFO - [MEDITECH-ADT-A01-Message+0+0000000032.txt] File was successfully read
+2025-07-26 01:10:53 - INFO - [MEDITECH-ADT-A01-Message+0+0000000032.txt] Sending HL7v2 message to Aidbox
+2025-07-26 01:10:53 - ERROR - Error processing file MEDITECH-ADT-A01-Message+0+0000000032.txt - NameError: name 'client' is not defined
+2025-07-26 01:10:53 - INFO - Marked file as processed: MEDITECH-ADT-A01-Message+0+0000000032.txt (status: error)
+2025-07-26 01:10:53 - INFO - Processing file: test-refactor.txt
+2025-07-26 01:10:53 - INFO - Successfully read file: test-refactor.txt (203 characters)
+2025-07-26 01:10:53 - INFO - [test-refactor.txt] File was successfully read
+2025-07-26 01:10:53 - INFO - [test-refactor.txt] Sending HL7v2 message to Aidbox
+2025-07-26 01:10:53 - ERROR - Error processing file test-refactor.txt - NameError: name 'client' is not defined
+2025-07-26 01:10:53 - INFO - Marked file as processed: test-refactor.txt (status: error)
+2025-07-26 01:10:53 - INFO - Processing file: MEDITECH-ADT-A01-Message+0+0000000033.txt
+2025-07-26 01:10:53 - INFO - Successfully read file: MEDITECH-ADT-A01-Message+0+0000000033.txt (1803 characters)
+2025-07-26 01:10:53 - INFO - [MEDITECH-ADT-A01-Message+0+0000000033.txt] File was successfully read
+2025-07-26 01:10:53 - INFO - [MEDITECH-ADT-A01-Message+0+0000000033.txt] Sending HL7v2 message to Aidbox
+2025-07-26 01:10:53 - ERROR - Error processing file MEDITECH-ADT-A01-Message+0+0000000033.txt - NameError: name 'client' is not defined
+2025-07-26 01:10:53 - INFO - Marked file as processed: MEDITECH-ADT-A01-Message+0+0000000033.txt (status: error)
+2025-07-26 01:10:53 - INFO - Processing file: test-error-logging-new.txt
+2025-07-26 01:10:53 - INFO - Successfully read file: test-error-logging-new.txt (40 characters)
+2025-07-26 01:10:53 - INFO - [test-error-logging-new.txt] File was successfully read
+2025-07-26 01:10:53 - INFO - [test-error-logging-new.txt] Sending HL7v2 message to Aidbox
+2025-07-26 01:10:53 - ERROR - Error processing file test-error-logging-new.txt - NameError: name 'client' is not defined
+2025-07-26 01:10:53 - INFO - Marked file as processed: test-error-logging-new.txt (status: error)
+2025-07-26 01:10:53 - INFO - Processing file: test-error-logging.txt
+2025-07-26 01:10:53 - INFO - Successfully read file: test-error-logging.txt (40 characters)
+2025-07-26 01:10:53 - INFO - [test-error-logging.txt] File was successfully read
+2025-07-26 01:10:53 - INFO - [test-error-logging.txt] Sending HL7v2 message to Aidbox
+2025-07-26 01:10:53 - ERROR - Error processing file test-error-logging.txt - NameError: name 'client' is not defined
+2025-07-26 01:10:53 - INFO - Marked file as processed: test-error-logging.txt (status: error)
+2025-07-26 01:10:53 - INFO - Processing file: test-prefix-new.txt
+2025-07-26 01:10:53 - INFO - Successfully read file: test-prefix-new.txt (202 characters)
+2025-07-26 01:10:53 - INFO - [test-prefix-new.txt] File was successfully read
+2025-07-26 01:10:53 - INFO - [test-prefix-new.txt] Sending HL7v2 message to Aidbox
+2025-07-26 01:10:53 - ERROR - Error processing file test-prefix-new.txt - NameError: name 'client' is not defined
+2025-07-26 01:10:53 - INFO - Marked file as processed: test-prefix-new.txt (status: error)
+2025-07-26 01:10:53 - INFO - Processing file: test-structured-error.txt
+2025-07-26 01:10:53 - INFO - Successfully read file: test-structured-error.txt (42 characters)
+2025-07-26 01:10:53 - INFO - [test-structured-error.txt] File was successfully read
+2025-07-26 01:10:53 - INFO - [test-structured-error.txt] Sending HL7v2 message to Aidbox
+2025-07-26 01:10:53 - ERROR - Error processing file test-structured-error.txt - NameError: name 'client' is not defined
+2025-07-26 01:10:53 - INFO - Marked file as processed: test-structured-error.txt (status: error)
+2025-07-26 01:10:53 - INFO - Processing file: test-message-new.txt
+2025-07-26 01:10:53 - INFO - Successfully read file: test-message-new.txt (320 characters)
+2025-07-26 01:10:53 - INFO - [test-message-new.txt] File was successfully read
+2025-07-26 01:10:53 - INFO - [test-message-new.txt] Sending HL7v2 message to Aidbox
+2025-07-26 01:10:53 - ERROR - Error processing file test-message-new.txt - NameError: name 'client' is not defined
+2025-07-26 01:10:53 - INFO - Marked file as processed: test-message-new.txt (status: error)
+2025-07-26 01:10:53 - INFO - Processing file: test-layered-logging.txt
+2025-07-26 01:10:53 - INFO - Successfully read file: test-layered-logging.txt (197 characters)
+2025-07-26 01:10:53 - INFO - [test-layered-logging.txt] File was successfully read
+2025-07-26 01:10:53 - INFO - [test-layered-logging.txt] Sending HL7v2 message to Aidbox
+2025-07-26 01:10:53 - ERROR - Error processing file test-layered-logging.txt - NameError: name 'client' is not defined
+2025-07-26 01:10:53 - INFO - Marked file as processed: test-layered-logging.txt (status: error)
+2025-07-26 01:10:53 - INFO - File processing completed. Successfully processed: 0/23 files
+2025-07-26 01:12:43 - INFO - [test-prefix-direct.txt] Sending HL7v2 message to Aidbox
+2025-07-26 01:12:43 - INFO - Using Basic authentication for user: hl7v2-provider-1
+2025-07-26 01:13:03 - INFO - Starting file processing for directory: ./files
+2025-07-26 01:13:03 - INFO - Loaded 23 processed files from tracking file
+2025-07-26 01:13:03 - INFO - No new files found for processing
+2025-07-26 01:13:03 - INFO - No new files to process
+2025-07-26 01:13:26 - INFO - Starting file processing for directory: ./files
+2025-07-26 01:13:26 - INFO - Loaded 23 processed files from tracking file
+2025-07-26 01:13:26 - INFO - Found 1 new files to process
+2025-07-26 01:13:26 - INFO - Processing file: test-final-prefix.txt
+2025-07-26 01:13:26 - INFO - Successfully read file: test-final-prefix.txt (202 characters)
+2025-07-26 01:13:26 - INFO - [test-final-prefix.txt] File was successfully read
+2025-07-26 01:13:26 - INFO - [test-final-prefix.txt] Sending HL7v2 message to Aidbox
+2025-07-26 01:13:26 - INFO - Using Basic authentication for user: hl7v2-provider-1
+2025-07-26 01:13:26 - INFO - Marked file as processed: test-final-prefix.txt (status: success)
+2025-07-26 01:13:26 - INFO - SUCCESS: [test-final-prefix.txt] HL7v2 sending message - SUCCESS {status: 201, id: 73825807-5065-461e-af9a-8e52058ea6ba} | Processing - SUCCESS
+2025-07-26 01:13:26 - INFO - File processing completed. Successfully processed: 1/1 files

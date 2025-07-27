@@ -1,0 +1,9 @@
+PUT /Hl7v2Config/default
+Content-Type: text/yaml
+
+resourceType: Hl7v2Config
+id: default
+isStrict: false
+mapping:
+  resourceType: Mapping
+  id: hl7v2-entry-point

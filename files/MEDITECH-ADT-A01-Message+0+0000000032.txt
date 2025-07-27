@@ -1,0 +1,22 @@
+MSH|^~\&|REG|BMH|||202501180147||ADT^A01^ADT_A01|75450|D|2.5.1|||AL|NE|
+EVN|A01|202501180147||ENADMIN|DLF.NUR1^Fair^Danielle^L^^^^^^^^^XX|202501180141|
+PID|1||M000001533^^^^MR^BMH~T1-20250118014700^^^^PI^BMH~T00001542^^^^EMR^BMH~03129274-2226-4399-8184-0D3FC0B2C8ED^^^^PT^BMH||Uauooluf^Qwrqlx^^^^^L||****0513|F||WH|524 Oix Vm^^Nhohemappk^IN^09864^USA^^^IN143||452-321-6278^PRN^CELL||ENG|W|ND|II9522251023||||NH|
+NK1|1|NB|||||EMP||||||Retired|
+PV1|1|I|B6M^6104^W|EL|||VASDJ.DO^Vasil^David^Joshua^^^DO^^^^^^XX|||MED||||ED|||VASDJ.DO^Vasil^David^Joshua^^^DO^^^^^^XX|IN||SP|||||||||||||||||||BMH||ADM|||202501180141|
+PV2|1|SP^Semi-Private^SP|Fall||||||||1||||||||||Y||||EL|||||||||||N|
+ROL|1|AD|PP|RYAK.MD^Ryan^Kathryn^^^^DO^^^^^^XX|
+ROL|2|AD|AD|VASDJ.DO^Vasil^David^Joshua^^^DO^^^^^^XX|
+ROL|3|AD|AT|VASDJ.DO^Vasil^David^Joshua^^^DO^^^^^^XX|
+OBX|1|TX|ADM.API^*****************************************^ADM||Y||||||F|
+OBX|2|TX|ADM.PORTEN Sophie^***************^ADM||N||||||F|
+OBX|3|TX|ADMHIECDT^*****************^ADM||20250118||||||F|
+OBX|4|CE|ADMHIECONS^***********************************^ADM||Y^Yes||||||F|
+OBX|5|CE|ADMHIEOPT^************^ADM||N^No||||||F|
+OBX|6|CE|ADMPAN1Q^**************^ADM||N^No||||||F|
+OBX|7|CE|ADMPAN2Q^**************^ADM||N^No||||||F|
+OBX|8|TX|NU.MUPORTE^*****************************************^ADM||Y||||||F|
+OBX|9|CE|REG.ARMREST^*************************************^ADM||N^No||||||F|
+OBX|10|TX|REG.COM.INFO^*^ADM||For Equipment Availability, see policy: Sensory/Hearing/Language Accommodation, 100-11||||||F|
+OBX|11|TX|REG.GVER^*****************************************************^ADM||Y||||||F|
+OBX|12|CE|REG.LATEX^**********************************^ADM||N^No||||||F|
+OBX|13|CE|REG.NOSURPRISE^************************************************************^ADM||U^Uninsured||||||F|

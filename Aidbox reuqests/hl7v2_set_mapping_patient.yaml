@@ -1,0 +1,159 @@
+#PUT /Mapping/hl7v2-patient
+content-type: text/yaml
+
+body:
+  $let:
+    # 1. Transform all identifiers from PID into FHIR format
+    - identifiers:
+        $map: $ msg.PID.identifiers
+        $as: i
+        $body:
+          use: official
+          # Use the FACILITY_ID variable from the parent mapping
+          system: $ FACILITY_ID + "/" + i.system
+          value: $ i.value
+          assigner:
+            display: $ FACILITY_ID
+
+    # 2. Form a query string for a conditional search by ALL identifiers
+    - searchList:
+        $map: $ identifiers
+        $as: id
+        $body: $ id.system + "|" + id.value
+
+    - searchQuery: $ "?identifier=" + joinStr(',', searchList)
+  # The body of this mapping now returns only the entry array.
+  # The parent mapping is responsible for creating the final Bundle.
+  $body:
+    resourceType: Bundle
+    type: transaction
+    entry:
+      - request:
+          # Search by any of the identifiers. This solves your main requirement.
+          url: $ "/fhir/Patient" + searchQuery
+          method: PUT
+
+        # PATIENT RESOURCE THAT WILL BE CREATED OR UPDATED
+        resource:
+          resourceType: Patient
+          identifier: $ identifiers # Use the variable defined above
+
+          name:
+            $map: $ msg.PID.name
+            $as: n
+            $body:
+              use:
+                $switch: $ toUpperCase(n.type)
+                A: nickname
+                B: old
+                C: old
+                D: usual
+                I: official
+                L: official
+                M: maiden
+                N: nickname
+                #P: name of partner - obsolete
+                R: official
+                S: anonymous
+                T: nickname
+                $default: temp
+              family: $ n.family.surname
+              given:
+                - $ n.given
+
+          telecom:
+            $call: flatten
+            $args:
+              - - $map: $ msg.PID.home_phone
+                  $as: p
+                  $body:
+                    $if: n.phone
+                    $then:
+                      system:
+                        $switch: $ toUpperCase(p.type)
+                        BP: pager
+                        CP: phone
+                        FX: fax
+                        Internet: url
+                        MD: other
+                        PH: phone
+                        TDD: other
+                        TTY: other
+                        $default: phone
+                      value: $ p.phone
+                      use:
+                        $if: $ p.type = 'CP' || p.type = 'CELL'
+                        $then: mobile
+                        $else: home
+                - $map: $ msg.PID.home_phone
+                  $as: p
+                  $body:
+                    $if: n.email
+                    $then:
+                      system: email
+                      value: $ p.email
+                      use: home
+                - $map: $ msg.PID.phone_number_business
+                  $as: p
+                  $body:
+                    $if: n.phone
+                    $then:
+                      system:
+                        $switch: $ toUpperCase(p.type)
+                        BP: pager
+                        CP: phone
+                        FX: fax
+                        Internet: url
+                        MD: other
+                        PH: phone
+                        TDD: other
+                        TTY: other
+                        $default: phone
+                      value: $ p.phone
+                      use:
+                        $if: $ p.type = 'CP' || p.type = 'CELL'
+                        $then: mobile
+                        $else: work
+                - $map: $ msg.PID.phone_number_business
+                  $as: p
+                  $body:
+                    $if: n.email
+                    $then:
+                      system: email
+                      value: $ p.email
+                      use: work
+
+          gender:
+            $switch: $ msg.PID.gender
+            F: female
+            M: male
+            $default: unknown
+
+          # Note: The date format '****0427' is incorrect.
+          # This code will work for correct YYYYMMDD dates.
+          birthDate:
+            $if: $ msg.PID.birth_date.time && ($len(msg.PID.birth_date.time) == 8)
+            $then: $ convertDate(msg.PID.birth_date.time, "YYYYMMDD", "YYYY-MM-dd")
+
+          address:
+            $map: $ msg.PID.address
+            $as: a
+            $body:
+              line:
+                - $ a.street.text
+              city: $ a.city
+              state: $ a.state
+              postalCode: $ a.postal_code
+              country: $ a.country
+              district: $ a.county
+
+          maritalStatus:
+            coding:
+              - system: http://terminology.hl7.org/CodeSystem/v3-MaritalStatus
+                code: $ msg.PID.marital_status.code
+
+          communication:
+            - language:
+                coding:
+                  - system: 'urn:ietf:bcp:47'
+                    code: $ msg.PID.primary_language.code

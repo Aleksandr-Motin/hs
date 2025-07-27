@@ -1,0 +1,16 @@
+PUT /Mapping/hl7v2-entry-point
+content-type: text/yaml
+
+body:
+  $let:
+  - {FACILITY_ID: $ msg.MSH.facility.ns}
+  - payload:
+    # - $if: $ FACILITY_ID && msg.MSH
+    #   $then: {$include: msh-segment}
+    - $if: $ msg.PID
+      $then: {$include: hl7v2-patient}
+    # - $if: $ msg.PV1.attending_doctor
+    #   $then: {$include: pv1-segment}
+  - mapped: {$map: $ payload, $as: p, $body: $ p.entry}
+  $body: {type: transaction, entry: $ flatten(mapped), resourceType: Bundle}
+

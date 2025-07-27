@@ -1,0 +1,32 @@
+POST /
+Content-Type: text/yaml
+
+resourceType: Bundle
+type: transaction
+entry:
+  - resource:
+      resourceType: Client
+      id: hl7v2-provider-1
+      grant_types: ["basic"]
+      secret: secret1
+    request:
+      url: /Client/hl7v2-provider-1
+      method: PUT
+  - resource:
+      resourceType: AccessPolicy
+      id: hl7v2-provider-1
+      link:
+        - id: hl7v2-provider-1
+          resourceType: Client
+      engine: json-schema
+      schema:
+        type: object
+        required: ["uri", "request-method"]
+        properties:
+          uri:
+            const: "/Hl7v2Message"
+          request-method:
+            const: post
+    request:
+      url: /AccessPolicy/hl7v2-provider-1
+      method: PUT

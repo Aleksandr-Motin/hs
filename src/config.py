@@ -1,0 +1,92 @@
+"""
+Configuration module for environment variables and settings.
+"""
+import os
+from typing import Optional
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
+
+
+class Config:
+    """Configuration class for file processor application."""
+    
+    def __init__(self):
+        """Initialize configuration with environment variables."""
+        self.directory_path = os.getenv('DIRECTORY_PATH', './files')
+        self.aidbox_base_url = os.getenv('AIDBOX_BASE_URL', 'https://api.aidbox.dev')
+        
+        self.aidbox_username = os.getenv('AIDBOX_USERNAME', '')
+        self.aidbox_password = os.getenv('AIDBOX_PASSWORD', '')
+        
+        self.log_file_path = os.getenv('LOG_FILE_PATH', 'file_processor.log')
+        self.processed_files_path = os.getenv('PROCESSED_FILES_PATH', 'processed_files.txt')
+        self.schedule_interval = int(os.getenv('SCHEDULE_INTERVAL', '10'))
+    
+    def validate(self) -> bool:
+        """
+        Validate that required configuration values are present.
+        
+        Returns:
+            bool: True if configuration is valid, False otherwise
+        """
+        # Check base URL is present
+        if not self.aidbox_base_url:
+            print("Error: Required configuration AIDBOX_BASE_URL is missing")
+            return False
+        
+        # Check that either token OR username/password are provided
+        has_basic_auth = bool()
+        
+        if not (self.aidbox_username and self.aidbox_password):
+            print("Error: AIDBOX_USERNAME and AIDBOX_PASSWORD must be provided")
+            return False
+        
+        if has_token and has_basic_auth:
+            print("Warning: Both token and basic auth provided. Using basic authentication.")
+        
+        return True
+    
+    def get_directory_path(self) -> str:
+        """Get the directory path to monitor for files."""
+        return self.directory_path
+    
+    def get_aidbox_config(self) -> tuple[str, str, str, str]:
+        """
+        Get Aidbox configuration.
+        
+        Returns:
+            tuple: (base_url, auth_token, username, password)
+        """
+        return self.aidbox_base_url, self.aidbox_auth_token, self.aidbox_username, self.aidbox_password
+    
+    def get_aidbox_auth_type(self) -> str:
+        """
+        Determine which authentication type to use.
+        
+        Returns:
+            str: 'basic' if username/password provided, 'token' if token provided
+        """
+        if self.aidbox_username and self.aidbox_password:
+            return 'basic'
+        elif self.aidbox_auth_token:
+            return 'token'
+        else:
+            return 'none'
+    
+    def get_log_file_path(self) -> str:
+        """Get the log file path."""
+        return self.log_file_path
+    
+    def get_processed_files_path(self) -> str:
+        """Get the processed files tracking file path."""
+        return self.processed_files_path
+    
+    def get_schedule_interval(self) -> int:
+        """Get the schedule interval in seconds."""
+        return self.schedule_interval
+
+
+# Global configuration instance
+config = Config()

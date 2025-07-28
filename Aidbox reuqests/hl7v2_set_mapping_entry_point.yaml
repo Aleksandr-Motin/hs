@@ -3,6 +3,26 @@ content-type: text/yaml
 
 body:
   $let:
+  - hl7v2dateConverter:
+      $fn: ["hl7v2date"]
+      $body:
+        $if:
+          $ (hl7v2date && toInt(hl7v2date) && len(hl7v2date) = 8 &&
+          toInt(substr(hl7v2date, 0, 4)) >= 1000 && toInt(substr(hl7v2date, 0, 4)) <= 9999 &&
+          toInt(substr(hl7v2date, 4, 6)) >= 1 && toInt(substr(hl7v2date, 4, 6)) <= 12 &&
+          toInt(substr(hl7v2date, 6, 8)) >= 1 && toInt(substr(hl7v2date, 6, 8)) <= 31)
+        $then: $ substr(hl7v2date, 0, 4)+"-"+substr(hl7v2date, 4, 6)+"-"+substr(hl7v2date, 6, 8)
+        $else: 
+          $if:
+            $ (hl7v2date && toInt(hl7v2date) && len(hl7v2date) = 6 &&
+            toInt(substr(hl7v2date, 0, 4)) >= 1000 && toInt(substr(hl7v2date, 0, 4)) <= 9999 &&
+            toInt(substr(hl7v2date, 4, 6)) >= 1 && toInt(substr(hl7v2date, 4, 6)) <= 12)
+          $then: $ substr(hl7v2date, 0, 4)+"-"+substr(hl7v2date, 4, 6)
+          $else:
+            $if:
+              $ (hl7v2date && toInt(hl7v2date) && len(hl7v2date) = 4 &&
+              toInt(hl7v2date) >= 1000 && toInt(hl7v2date) <= 9999) 
+            $then: $ hl7v2date
   - {FACILITY_ID: $ msg.MSH.facility.ns}
   - payload:
     # - $if: $ FACILITY_ID && msg.MSH

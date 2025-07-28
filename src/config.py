@@ -36,15 +36,10 @@ class Config:
             print("Error: Required configuration AIDBOX_BASE_URL is missing")
             return False
         
-        # Check that either token OR username/password are provided
-        has_basic_auth = bool()
-        
+        # Check that username and password are provided for basic auth
         if not (self.aidbox_username and self.aidbox_password):
-            print("Error: AIDBOX_USERNAME and AIDBOX_PASSWORD must be provided")
+            print("Error: Both AIDBOX_USERNAME and AIDBOX_PASSWORD must be provided")
             return False
-        
-        if has_token and has_basic_auth:
-            print("Warning: Both token and basic auth provided. Using basic authentication.")
         
         return True
     
@@ -52,28 +47,23 @@ class Config:
         """Get the directory path to monitor for files."""
         return self.directory_path
     
-    def get_aidbox_config(self) -> tuple[str, str, str, str]:
+    def get_aidbox_config(self) -> tuple[str, str, str]:
         """
         Get Aidbox configuration.
         
         Returns:
-            tuple: (base_url, auth_token, username, password)
+            tuple: (base_url, username, password)
         """
-        return self.aidbox_base_url, self.aidbox_auth_token, self.aidbox_username, self.aidbox_password
+        return self.aidbox_base_url, self.aidbox_username, self.aidbox_password
     
     def get_aidbox_auth_type(self) -> str:
         """
         Determine which authentication type to use.
         
         Returns:
-            str: 'basic' if username/password provided, 'token' if token provided
+            str: Always returns 'basic' since only basic auth is supported
         """
-        if self.aidbox_username and self.aidbox_password:
-            return 'basic'
-        elif self.aidbox_auth_token:
-            return 'token'
-        else:
-            return 'none'
+        return 'basic'
     
     def get_log_file_path(self) -> str:
         """Get the log file path."""

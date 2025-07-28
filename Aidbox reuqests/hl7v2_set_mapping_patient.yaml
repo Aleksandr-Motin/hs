@@ -124,36 +124,95 @@ body:
                       use: work
 
           gender:
-            $switch: $ msg.PID.gender
+            $switch: $ toUpperCase(msg.PID.gender)
             F: female
             M: male
+            O: other
+            U: unknown
+            A: other
+            N: other
             $default: unknown
 
-          # Note: The date format '****0427' is incorrect.
-          # This code will work for correct YYYYMMDD dates.
-          birthDate:
-            $if: $ msg.PID.birth_date.time && ($len(msg.PID.birth_date.time) == 8)
-            $then: $ convertDate(msg.PID.birth_date.time, "YYYYMMDD", "YYYY-MM-dd")
+          # This will work for correct formst YYYYMMDD or YYYYMM or YYYY dates.
+          # In other case it will be skipped.
+          birthDate: $ hl7v2dateConverter(msg.PID.birth_date.time)
+
+          deceasedDateTime: $ hl7v2dateConverter(msg.PID.death_datetime.time)
+          deceasedBoolean:
+            $if: $ !hl7v2dateConverter(msg.PID.death_datetime.time)
+            $then:
+              $switch: $ msg.PID.death_indicator
+              Y: true
+              N: false
 
           address:
             $map: $ msg.PID.address
             $as: a
             $body:
+              use:
+                $switch: $ toUpperCase(a.type)
+                B: work
+                L: work
+                O: work
+                M: billing
+                H: home
+                P: home
+                RH: home
+                $default: temp
+              type:
+                $if: $ toUpperCase(a.type) = 'M'
+                $then: postal
+                $else: both
               line:
+                - $ a.street.name
                 - $ a.street.text
+                - $ a.street.number
               city: $ a.city
+              district: $ a.county
               state: $ a.state
               postalCode: $ a.postal_code
               country: $ a.country
-              district: $ a.county
 
           maritalStatus:
             coding:
               - system: http://terminology.hl7.org/CodeSystem/v3-MaritalStatus
-                code: $ msg.PID.marital_status.code
+                code:
+                  $switch: $ msg.PID.marital_status.code
+                  A: UNK # Separated -> Unknown
+                  D: D # Divorce -> Divorce
+                  M: M # Married -> Married
+                  S: S # Single -> Single
+                  W: W # Widowed -> Widowed
+                  C: C # Common Law -> Common Law
+                  G: T # Living Together -> Domestic Partner
+                  P: T # Domestic Partner -> Domestic Partner
+                  R: T # Registered Domestic Partner -> Domestic Partner
+                  E: L # Legally Separated -> Legally Separated
+                  N: A # Annulled -> Annulled
+                  I: I # Interlocutory -> Interlocutory
+                  B: U # Unmarried -> Unmarried
+                  U: UNK # Unknown -> Unknown
+                  O: UNK # Other -> Unknown
+                  T: UNK # Unreported -> Unknown
+                  $default: UNK
+
+          multipleBirthInteger: $ toInt(msg.PID.birth_order)
+          multipleBirthBoolean:
+            $if: $ !toInt(msg.PID.birth_order)
+            $then:
+              $switch: $ msg.PID.multiple_birth_indicator
+              Y: true
+              N: false
 
           communication:
             - language:
                 coding:
-                  - system: 'urn:ietf:bcp:47'
+                  - system: $ msg.PID.primary_language.system
                     code: $ msg.PID.primary_language.code
+                text: $ msg.PID.primary_language.text
+              preferred: true
+            - language:
+                coding:
+                  - system: $ msg.PID.primary_language.alternate_system
+                    code: $ msg.PID.primary_language.alternate_code
+                text: $ msg.PID.primary_language.alternate_text

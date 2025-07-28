@@ -70,6 +70,9 @@ class FileProcessor:
                 if filename not in processed_files:
                     new_files.append(file_path)
             
+            # Sort files alphabetically by filename to ensure consistent processing order
+            new_files.sort(key=lambda x: os.path.basename(x))
+            
             if new_files:
                 log_info(f"Found {len(new_files)} new files to process")
             else:
@@ -105,7 +108,7 @@ class FileProcessor:
             # Read file content
             with open(file_path, 'r', encoding='utf-8') as file:
                 content = file.read()
-                log_info(f"Successfully read file: {os.path.basename(file_path)} ({len(content)} characters)")
+                log_info(f"[{os.path.basename(file_path)}] Successfully read file ({len(content)} characters)")
                 return content
                 
         except PermissionError as e:
@@ -146,7 +149,7 @@ class FileProcessor:
             with open(self.processed_files_path, 'a', encoding='utf-8') as file:
                 file.write(entry)
             
-            log_info(f"Marked file as processed: {filename} (status: {status})")
+            log_info(f"[{filename}] Marked file as processed (status: {status})")
             return True
             
         except Exception as e:
@@ -215,7 +218,7 @@ class FileProcessor:
                 filename = os.path.basename(file_path)
                 
                 try:
-                    log_info(f"Processing file: {filename}")
+                    log_info(f"[{filename}] Processing file")
                     
                     # Step 3: Read file content
                     content = self.read_file_content(file_path)
@@ -240,7 +243,7 @@ class FileProcessor:
                         http_status = response_data.get("http_status_code", "unknown") if response_data else "unknown"
                         
                         # Top level: Consolidated success log
-                        log_success(f"[{filename}] HL7v2 sending message - SUCCESS {{status: {http_status}, id: {message_id}}} | Processing - SUCCESS")
+                        log_info(f"[{filename}] HL7v2 sending message - SUCCESS {{status: {http_status}, id: {message_id}}} | Processing - SUCCESS")
                     else:
                         # Mark as processed with error status
                         self.mark_file_as_processed(file_path, "error")

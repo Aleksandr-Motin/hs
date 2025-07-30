@@ -23,6 +23,7 @@ class Config:
         self.log_file_path = os.getenv('LOG_FILE_PATH', 'file_processor.log')
         self.processed_files_path = os.getenv('PROCESSED_FILES_PATH', 'processed_files.txt')
         self.schedule_interval = int(os.getenv('SCHEDULE_INTERVAL', '10'))
+        self.retry_delay_seconds = int(os.getenv('RETRY_DELAY_SECONDS', '5'))
     
     def validate(self) -> bool:
         """
@@ -76,6 +77,10 @@ class Config:
     def get_schedule_interval(self) -> int:
         """Get the schedule interval in seconds."""
         return self.schedule_interval
+    
+    def get_retry_delay_seconds(self) -> int:
+        """Get the retry delay in seconds."""
+        return self.retry_delay_seconds
 
 
 # Global configuration instance

@@ -1,4 +1,4 @@
-#PUT /Mapping/hl7v2-patient
+PUT /Mapping/hl7v2-patient
 content-type: text/yaml
 
 body:

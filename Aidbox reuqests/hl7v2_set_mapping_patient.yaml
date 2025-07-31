@@ -8,12 +8,24 @@ body:
         $map: $ msg.PID.identifiers
         $as: i
         $body:
-          use: official
-          # Use the FACILITY_ID variable from the parent mapping
-          system: $ FACILITY_ID + "/" + i.system
-          value: $ i.value
-          assigner:
-            display: $ FACILITY_ID
+          $let:
+            - authority:
+                $if: $ i.authority
+                $then: $ i.authority.ns + "_" + i.authority.uid + "_" + i.authority.type
+            - facility:
+                $if: $ i.facility
+                $then: $ i.facility.ns + "_" + i.facility.uid + "_" + i.facility.type
+            - assigner:
+                $if: $ authority
+                $then: $ authority + "/" + facility
+                $else: $ "/" + facility
+          $body:
+            use: official
+            # Use the FACILITY_ID variable from the parent mapping
+            system: $ assigner + "/" + i.system
+            value: $ i.value
+            assigner:
+              display: $ assigner
 
     # 2. Form a query string for a conditional search by ALL identifiers
     - searchList:

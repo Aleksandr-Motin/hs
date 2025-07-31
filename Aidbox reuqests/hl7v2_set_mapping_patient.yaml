@@ -21,7 +21,7 @@ body:
                 $else: $ "/" + facility
           $body:
             use: official
-            # Use the FACILITY_ID variable from the parent mapping
+            # Full name of assigner
             system: $ assigner + "/" + i.system
             value: $ i.value
             assigner:
